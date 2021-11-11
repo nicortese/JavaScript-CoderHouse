@@ -1,0 +1,44 @@
+.navtitle{
+    font-size: 25px;
+    
+}
+
+.arrowicon{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.indexconteiner{
+    margin-top: 150px;
+}
+.conteinertitulo{
+    height: 60px;
+}
+.cards{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.checked li:before{
+    content: "✓";
+    position: absolute;
+    left: 0;
+
+}
+.cross li:before{
+    content: "✗";
+    position: absolute;
+    left: 0;
+
+}
+
+ul {
+    position: relative;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 1.2em;
+}
