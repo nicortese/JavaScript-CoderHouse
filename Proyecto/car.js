@@ -105,3 +105,4 @@ const brandlist = [
   "volkswagen",
   "volvo",
 ];
+brandlist.sort();
