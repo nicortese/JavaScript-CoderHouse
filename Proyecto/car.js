@@ -24,12 +24,14 @@ function cotizar() {
   auto.carinfo();
 }
 
+
+document.getElementById("button-addon2").addEventListener("click", brandsearch);
 function brandsearch() {
     const brandname = document.getElementById("brandsearch").value
     if (brandlist.includes(brandname.toLowerCase())){
-        alert("Ese auto lo podemos cotizar")
+      document.getElementById("search").innerHTML = "Este modelo lo podemos cotizar";
     }else{
-        alert("Ese auto no se puede cotizar")
+      document.getElementById("search").innerHTML = "Este modelo no lo podemos cotizar";
     }
     
 }
@@ -106,3 +108,5 @@ const brandlist = [
   "volvo",
 ];
 brandlist.sort();
+
+

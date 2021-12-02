@@ -14,6 +14,20 @@
 .conteinertitulo{
     height: 60px;
 }
+
+.accept{
+    height: 10px;
+    width: auto;
+    font-weight: bold;
+    color: green;
+}
+
+.reject{
+    height: 10px;
+    width: auto;
+    font-weight: bold;
+    color: red;
+}
 .cards{
     display: flex;
     flex-direction: column;
