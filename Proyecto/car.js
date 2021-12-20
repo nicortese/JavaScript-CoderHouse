@@ -1,46 +1,3 @@
-class Car {
-  constructor(marca, modelo, año) {
-    this.marca = marca;
-    this.modelo = modelo;
-    this.año = año;
-  }
-  carinfo() {
-    alert(
-      "Tu vehiculo es un " +
-        this.marca +
-        " " +
-        this.modelo +
-        " del año " +
-        this.año
-    );
-  }
-}
-
-function cotizar() {
-  const marca = prompt("Ingrese marca de su vehiculo");
-  const modelo = prompt("Ingrese el modelo de su vehiculo");
-  const año = parseInt(prompt("Ingrese el año de su vehiculo"));
-  const auto = new Car(marca, modelo, año);
-  auto.carinfo();
-}
-
-
-document.getElementById("button-addon2").addEventListener("click", brandsearch);
-function brandsearch() {
-    const brandname = document.getElementById("brandsearch").value
-    if (brandlist.includes(brandname.toLowerCase())){
-      document.getElementById("search").innerHTML = "Este modelo lo podemos cotizar";
-    }else{
-      document.getElementById("search").innerHTML = "Este modelo no lo podemos cotizar";
-    }
-    
-}
-
-function clearinfo() {
-    document.getElementById("brandsearch").value=""
-    
-}
-
 const brandlist = [
   "abarth",
   "alfa romeo",
@@ -108,5 +65,55 @@ const brandlist = [
   "volvo",
 ];
 brandlist.sort();
+
+class Car {
+  constructor(marca, modelo, año) {
+    this.marca = marca;
+    this.modelo = modelo;
+    this.año = año;
+  }
+  carinfo() {
+    alert(
+      "Tu vehiculo es un " +
+        this.marca +
+        " " +
+        this.modelo +
+        " del año " +
+        this.año
+    );
+  }
+}
+
+function cotizar() {
+  const marca = prompt("Ingrese marca de su vehiculo");
+  const modelo = prompt("Ingrese el modelo de su vehiculo");
+  const año = parseInt(prompt("Ingrese el año de su vehiculo"));
+  const auto = new Car(marca, modelo, año);
+  auto.carinfo();
+}
+
+
+document.getElementById("button-addon2").addEventListener("click", brandsearch);
+const divsearch = document.getElementById("search")
+function brandsearch() {
+    const brandname = document.getElementById("brandsearch").value
+    if (brandlist.includes(brandname.toLowerCase())){
+      divsearch.innerHTML = "Este modelo lo podemos cotizar";
+      divsearch.className = "accept";
+    }else{
+      divsearch.innerHTML = "Este modelo no lo podemos cotizar";
+      divsearch.className = "reject";
+    }
+    
+}
+const button = document.getElementById("buttonnew")
+const input = document.getElementById("brandsearch")
+button.addEventListener("click",clearinfo)
+function clearinfo() {
+    input.value=""
+    document.getElementById("search").innerHTML = ""
+}
+
+
 
 

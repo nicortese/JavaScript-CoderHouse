@@ -22,6 +22,10 @@
     color: green;
 }
 
+.hidden{
+    display: none;
+}
+
 .reject{
     height: 10px;
     width: auto;
