@@ -114,6 +114,16 @@ function clearinfo() {
     document.getElementById("search").innerHTML = ""
 }
 
+/*Aplicando JQuery */
+
+let imagen = $("#gruaimagen");
+$("#gruaimagen").fadeIn(function(){
+  $("#gruaimagen").animate({ opacity: 0 }, 1000);
+  $("#gruaimagen").animate({ opacity: 1 }, 1000);
+});
+
+console.log(gruaimagen);
+
 
 
 
