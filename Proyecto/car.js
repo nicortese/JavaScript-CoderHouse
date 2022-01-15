@@ -92,38 +92,55 @@ function cotizar() {
   auto.carinfo();
 }
 
-
 document.getElementById("button-addon2").addEventListener("click", brandsearch);
-const divsearch = document.getElementById("search")
+const divsearch = document.getElementById("search");
 function brandsearch() {
-    const brandname = document.getElementById("brandsearch").value
-    if (brandlist.includes(brandname.toLowerCase())){
-      divsearch.innerHTML = "Este modelo lo podemos cotizar";
-      divsearch.className = "accept";
-    }else{
-      divsearch.innerHTML = "Este modelo no lo podemos cotizar";
-      divsearch.className = "reject";
-    }
-    
+  const brandname = document.getElementById("brandsearch").value;
+  if (brandlist.includes(brandname.toLowerCase())) {
+    divsearch.innerHTML = "Este modelo lo podemos cotizar";
+    divsearch.className = "accept";
+  } else {
+    divsearch.innerHTML = "Este modelo no lo podemos cotizar";
+    divsearch.className = "reject";
+  }
 }
-const button = document.getElementById("buttonnew")
-const input = document.getElementById("brandsearch")
-button.addEventListener("click",clearinfo)
+const button = document.getElementById("buttonnew");
+const input = document.getElementById("brandsearch");
+button.addEventListener("click", clearinfo);
 function clearinfo() {
-    input.value=""
-    document.getElementById("search").innerHTML = ""
+  input.value = "";
+  document.getElementById("search").innerHTML = "";
 }
 
 /*Aplicando JQuery */
 
 let imagen = $("#gruaimagen");
-$("#gruaimagen").fadeIn(function(){
+$("#gruaimagen").fadeIn(function () {
   $("#gruaimagen").animate({ opacity: 0 }, 1000);
   $("#gruaimagen").animate({ opacity: 1 }, 1000);
 });
 
 console.log(gruaimagen);
 
+function getRandomBrand() {
+  let number = Math.floor(Math.random() * brandlist.length);
+  return brandlist[number][0].toUpperCase() + brandlist[number].substring(1)
+}
 
+/*Llamada ajax */
 
+const URLGET = "https://jsonplaceholder.typicode.com/users";
 
+$(document).ready(function () {
+  $.get(URLGET, function (respuesta, estado) {
+    if (estado === "success") {
+      let datosPersona = respuesta;
+      for (let i = 0; i < 3; i++) {
+        $("#containerCliente").prepend(`<div>
+                                        <p class= "cardBold">${datosPersona[i].name}:</p>
+                                        <p class= "cardCar">${getRandomBrand()}</p>
+                                      </div>`);
+      }
+    }
+  });
+});
