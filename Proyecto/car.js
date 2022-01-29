@@ -1,3 +1,5 @@
+/*Lista de marcas de autos */
+
 const brandlist = [
   "abarth",
   "alfa romeo",
@@ -66,6 +68,8 @@ const brandlist = [
 ];
 brandlist.sort();
 
+/*Creacion de la clase Car */
+
 class Car {
   constructor(marca, modelo, año) {
     this.marca = marca;
@@ -91,6 +95,8 @@ function cotizar() {
   const auto = new Car(marca, modelo, año);
   auto.carinfo();
 }
+
+/*Funcion de busqueda y Boton de busqueda del vehiculo  */
 
 document.getElementById("button-addon2").addEventListener("click", brandsearch);
 const divsearch = document.getElementById("search");
@@ -121,6 +127,9 @@ $("#gruaimagen").fadeIn(function () {
 });
 
 console.log(gruaimagen);
+
+
+/*Funcion selectora aleatoria de la lista de autos*/
 
 function getRandomBrand() {
   let number = Math.floor(Math.random() * brandlist.length);
